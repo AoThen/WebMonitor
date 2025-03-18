@@ -20,7 +20,7 @@ RUN set -x; buildDeps='wget build-essential' \
 chrpath libssl-dev libxft-dev libfreetype6 libfreetype6-dev libfontconfig1 libfontconfig1-dev \
 && rm -rf /var/lib/apt/lists/* \
 && export OS_ARCH=$(uname -m) \
-&& wget https://github.com/AoThen/phantomjs/releases/download/phantomjs_amd64_linux_gcc/phantomjs -O /usr/local/bin/phantomjs
+&& wget https://github.com/AoThen/phantomjs/releases/download/phantomjs_amd64_linux_gcc/phantomjs -O /usr/local/bin/phantomjs \
 && rm /tmp/phantomjs-2.1.1-linux_${OS_ARCH}.tar.gz \
 && pip install -r requirements.txt && pip cache purge \
 && apt-get purge -y --auto-remove $buildDeps
