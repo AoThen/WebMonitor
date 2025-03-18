@@ -15,12 +15,16 @@ WORKDIR /app
 # && wget https://github.com/mjysci/phantomjs/releases/download/v2.1.1/phantomjs-2.1.1-linux_${OS_ARCH}.tar.gz -O /tmp/phantomjs-2.1.1-linux_${OS_ARCH}.tar.gz \
 # && tar -xzvf /tmp/phantomjs-2.1.1-linux_${OS_ARCH}.tar.gz -C /usr/local/bin \
 
+
+
 RUN set -x; buildDeps='wget build-essential' \
 && apt-get update && apt-get install -y ${buildDeps} \ 
 chrpath libssl-dev libxft-dev libfreetype6 libfreetype6-dev libfontconfig1 libfontconfig1-dev \
 && rm -rf /var/lib/apt/lists/* \
 && export OS_ARCH=$(uname -m) \
-&& wget https://github.com/AoThen/phantomjs/releases/download/phantomjs_amd64_linux_gcc/phantomjs -O /usr/local/bin/phantomjs \
+&& wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-${OS_ARCH}.tar.bz2 -O /tmp/phantomjs-2.1.1-linux-${OS_ARCH}.tar.bz2 \
+&& tar -xzvf /tmp/phantomjs-2.1.1-linux-${OS_ARCH}.tar.bz2 -C /usr/local/bin \
+&& rm /tmp/phantomjs-2.1.1-linux-${OS_ARCH}.tar.bz2 \
 && pip install -r requirements.txt && pip cache purge \
 && apt-get purge -y --auto-remove $buildDeps
 
