@@ -22,8 +22,7 @@ SIMPLEUI_DEFAULT_THEME = 'admin.lte.css'
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@c*hlp1prhh5up^i9c9&0w86&@2!d)fb*r$up1cf!hhnlyf_@&'
-
+SECRET_KEY = os.getenv('MY_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -138,7 +137,7 @@ SIMPLEUI_CONFIG = {
     'menus': [{
         'name': '使用文档',
         'icon': 'fa fa-file',
-        'url': 'https://www.logicjake.xyz/WebMonitor/#/how'
+        'url': 'https://logicjake.github.io/WebMonitor/#/how'
     }],
     'menu_display': ['Simpleui', '任务管理', '系统管理', '使用文档'],
 }
@@ -154,7 +153,7 @@ SIMPLEUI_ICON = {
 
 SIMPLEUI_ANALYSIS = False
 SIMPLEUI_STATIC_OFFLINE = True
-SIMPLEUI_LOGO = 'https://www.logicjake.xyz/img/favicon.ico'
+SIMPLEUI_LOGO = 'https://pan.quark.cn/favicon.ico'
 
 # logging配置
 log_path = os.path.join(BASE_DIR, 'static', 'log')
