@@ -26,7 +26,7 @@ chrpath libssl-dev libxft-dev libfreetype6 libfreetype6-dev libfontconfig1 libfo
 && wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-${OS_ARCH}.tar.bz2 -O /tmp/phantomjs-2.1.1-linux-${OS_ARCH}.tar.bz2 \
 && tar -xvjf /tmp/phantomjs-2.1.1-linux-${OS_ARCH}.tar.bz2 -C /usr/local/bin \
 && mv /usr/local/bin/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin/ \
-&& rm /usr/local/bin/phantomjs-2.1.1-linux-x86_64 \
+&& rm -rf /usr/local/bin/phantomjs-2.1.1-linux-x86_64 \
 && rm /tmp/phantomjs-2.1.1-linux-${OS_ARCH}.tar.bz2 \
 && pip install -r requirements.txt && pip cache purge \
 && apt-get purge -y --auto-remove $buildDeps
